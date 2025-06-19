@@ -2,9 +2,9 @@
 
 **📍 Published at the LMRL Workshop @ ICLR 2025**
 
-GRASP is a lightweight, graph-based, multi-magnification framework for subtype prediction of whole slide images (WSIs) in computational pathology. It emulates how expert pathologists navigate through different magnification levels when diagnosing tissue samples.
+[GRASP](https://openreview.net/pdf?id=k6xlOfZnTC) is a lightweight, graph-based, multi-magnification framework for subtype prediction of whole slide images (WSIs) in computational pathology. It emulates how expert pathologists navigate through different magnification levels when diagnosing tissue samples.
 
-> ⚡ GRASP sets a new SOTA for subtype classification across three cancer datasets, while being 5–15× smaller than other top models.
+> ⚡ [GRASP](https://openreview.net/pdf?id=k6xlOfZnTC) sets a new SOTA for subtype classification across three cancer datasets, while being 5–15× smaller than other top models.
 
 ---
 
@@ -20,9 +20,6 @@ GRASP is a lightweight, graph-based, multi-magnification framework for subtype p
 
 ## 🖼️ Overview
 
-<!-- Replace with actual image path if available -->
-![GRASP Architecture](assets/figures/grasp_architecture.png)
-
 Each WSI is encoded as a hierarchical graph:
 - **Nodes**: Patch embeddings from different magnifications.
 - **Edges**: 
@@ -33,19 +30,6 @@ Three GCN layers propagate information across this graph, followed by convergenc
 
 ---
 
-## 📈 Performance
-
-| Model       | Params | Ovarian | Bladder | ESCA | Avg |
-|-------------|--------|---------|---------|------|-----|
-| **GRASP**   | 0.378M | **72.7%** | **93.5%** | 87.7% | **83.1%** |
-| ZoomMIL     | 2.89M  | 70.1%  | 93.1%  | 88.9% | 81.6% |
-| CLAM-MB     | 0.796M | 62.0%  | 90.1%  | 84.8% | 77.6% |
-| PatchGCN    | 1.385M | 68.3%  | 91.1%  | 85.5% | 78.3% |
-
-✅ Trained using both Swin and KimiaNet backbones  
-✅ Evaluated on 3-fold cross-validation with 10 random seeds
-
----
 
 ## 🧪 Setup
 ## Directory layout
