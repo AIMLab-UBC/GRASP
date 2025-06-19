@@ -11,9 +11,8 @@
 ## 🔍 Key Features
 
 - **Multi-Magnification Pyramid**: Jointly models 5×, 10×, and 20× patches in a graph structure.
-- **Lightweight & Interpretable**: Just **0.378M parameters**, with visualizable magnification-aware attention.
+- **Lightweight & Interpretable**: Just **0.378M parameters**, with visualizable magnification-aware heatmap.
 - **Convergence Pooling**: Replaces traditional pooling layers with a convergence mechanism—proven both empirically and theoretically.
-- **Modular Graph Design**: Intra- and inter-magnification edges encode rich relationships between image patches.
 - **Clinically Validated**: Behavior and interpretability confirmed by expert pathologists.
 
 ---
@@ -25,9 +24,7 @@ Each WSI is encoded as a hierarchical graph:
 - **Edges**: 
   - Intra-magnification (fully connected per mag).
   - Inter-magnification (links across magnification pyramid).
-
-Three GCN layers propagate information across this graph, followed by convergence and MLP classification.
-
+  
 ---
 
 
