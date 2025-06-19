@@ -1,8 +1,53 @@
-# GRASP
-Note: This repository is being gradually updated!
+# 🧠 GRASP: Graph-Structured Pyramidal Whole Slide Image Representation
 
-[GRASP](https://openreview.net/pdf?id=k6xlOfZnTC) official object-oriented implementation, demonstrating graph-based aggregation of histopathology instances using multiple microscopic magnifications. The repository includes sample data and scripts for building graphs from feature files, training a GRASP model, and reporting the evaluation metrics.
+**📍 Published at the LMRL Workshop @ ICLR 2025**
 
+GRASP is a lightweight, graph-based, multi-magnification framework for subtype prediction of whole slide images (WSIs) in computational pathology. It emulates how expert pathologists navigate through different magnification levels when diagnosing tissue samples.
+
+> ⚡ GRASP sets a new SOTA for subtype classification across three cancer datasets, while being 5–15× smaller than other top models.
+
+---
+
+## 🔍 Key Features
+
+- **Multi-Magnification Pyramid**: Jointly models 5×, 10×, and 20× patches in a graph structure.
+- **Lightweight & Interpretable**: Just **0.378M parameters**, with visualizable magnification-aware attention.
+- **Convergence Pooling**: Replaces traditional pooling layers with a convergence mechanism—proven both empirically and theoretically.
+- **Modular Graph Design**: Intra- and inter-magnification edges encode rich relationships between image patches.
+- **Clinically Validated**: Behavior and interpretability confirmed by expert pathologists.
+
+---
+
+## 🖼️ Overview
+
+<!-- Replace with actual image path if available -->
+![GRASP Architecture](assets/figures/grasp_architecture.png)
+
+Each WSI is encoded as a hierarchical graph:
+- **Nodes**: Patch embeddings from different magnifications.
+- **Edges**: 
+  - Intra-magnification (fully connected per mag).
+  - Inter-magnification (links across magnification pyramid).
+
+Three GCN layers propagate information across this graph, followed by convergence and MLP classification.
+
+---
+
+## 📈 Performance
+
+| Model       | Params | Ovarian | Bladder | ESCA | Avg |
+|-------------|--------|---------|---------|------|-----|
+| **GRASP**   | 0.378M | **72.7%** | **93.5%** | 87.7% | **83.1%** |
+| ZoomMIL     | 2.89M  | 70.1%  | 93.1%  | 88.9% | 81.6% |
+| CLAM-MB     | 0.796M | 62.0%  | 90.1%  | 84.8% | 77.6% |
+| PatchGCN    | 1.385M | 68.3%  | 91.1%  | 85.5% | 78.3% |
+
+✅ Trained using both Swin and KimiaNet backbones  
+✅ Evaluated on 3-fold cross-validation with 10 random seeds
+
+---
+
+## 🧪 Setup
 ## Directory layout
 
 - `assets/raw_features/` – Example feature files per slide (HDF5 format).
@@ -91,5 +136,20 @@ Metrics such as accuracy, balanced accuracy, F1, and AUC are printed to the cons
 
 ## Notes
 
-The provided data and scripts are for demonstration. Replace the sample feature files and manifest with your own dataset following the same folder structure. Ensure the `--classes` argument in the training script matches your subtype labels.
+The provided data and scripts are for demonstration. Replace the sample feature files and manifest with your own dataset, following the same folder structure. Ensure the `--classes` argument in the training script matches your subtype labels.
 
+
+# 📜 Citation
+
+If you use GRASP in your work, please cite:
+
+```bibtex
+@inproceedings{
+mirabadi2025grasp,
+title={{GRASP}: {GRA}ph-Structured Pyramidal Whole Slide Image Representation},
+author={Ali Khajegili Mirabadi and Graham AD Archibald and Amirali Darbandsari and Alberto Contreras-Sanz and Ramin Nakhli and Maryam Asadi and Allen W Zhang and Blake Gilks and Peter Colin Black and Gang Wang and Hossein Farahani and Ali Bashashati},
+booktitle={Learning Meaningful Representations of Life (LMRL) Workshop at ICLR 2025},
+year={2025},
+url={https://openreview.net/forum?id=k6xlOfZnTC}
+}
+```
