@@ -1,6 +1,6 @@
-# 🧠 GRASP: Graph-Structured Pyramidal Whole Slide Image Representation
+# GRASP: Graph-Structured Pyramidal Whole Slide Image Representation
 
-**📍 Published at the LMRL Workshop @ ICLR 2025**
+**📍 Early version Published at the LMRL Workshop @ ICLR 2025**
 
 [GRASP](https://openreview.net/pdf?id=k6xlOfZnTC) is a lightweight, graph-based, multi-magnification framework for subtype prediction of whole slide images (WSIs) in computational pathology. It emulates how expert pathologists navigate through different magnification levels when diagnosing tissue samples.
 
