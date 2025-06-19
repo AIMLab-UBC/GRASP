@@ -1,5 +1,6 @@
 # GRASP
 Note: This repository is being gradually updated!
+
 [GRASP](https://openreview.net/pdf?id=k6xlOfZnTC) official object-oriented implementation, demonstrating graph-based aggregation of histopathology instances using multiple microscopic magnifications. The repository includes sample data and scripts for building graphs from feature files, training a GRASP model, and reporting the evaluation metrics.
 
 ## Directory layout
@@ -13,11 +14,15 @@ Note: This repository is being gradually updated!
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.9+
 - PyTorch and DGL (GPU enabled is recommended)
-- (Optional) Conda environment named `cuda6` as referenced in the scripts
+- Use Conda to create the `grasp` environment defined in `assets/grasp.yml`
 
-Install the required Python packages according to your PyTorch and DGL versions.
+Run the following to create and activate the environment:
+```bash
+conda env create -f assets/grasp.yml
+conda activate grasp
+```
 
 ## 1. Graph construction
 
